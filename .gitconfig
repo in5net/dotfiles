@@ -1,0 +1,35 @@
+[user]
+	name = iz7n
+	email = 48165199+iz7n@users.noreply.github.com
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = false
+[core]
+	pager = delta
+	ignorecase = false
+	editor = nvim
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+[merge]
+	conflictStyle = diff3
+[diff]
+	colorMoved = default
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true

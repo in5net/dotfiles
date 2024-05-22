@@ -1,0 +1,5 @@
+import = ["~/.config/alacritty/kanagawa.yml"]
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 13
