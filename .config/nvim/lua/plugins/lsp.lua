@@ -70,32 +70,6 @@ return {
 
 			local lspconfig = require("lspconfig")
 
-			local configs = require("lspconfig.configs")
-			local util = require("lspconfig.util")
-
-			local root_file = {
-				".xo-config",
-				".xo-config.json",
-				".xo-config.js",
-				"xo.config.js",
-				".xo-config.cjs",
-				"xo.config.cjs",
-			}
-			if not configs.xo then
-				configs.xo = {
-					default_config = {
-						cmd = { "xo", "--reporter", "json", "--stdin" },
-						filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-						root_dir = function(fname)
-							root_file = util.insert_package_json(root_file, "xo", fname)
-							return util.root_pattern(unpack(root_file))(fname)
-						end,
-						settings = {},
-					},
-				}
-			end
-			lspconfig.xo.setup({})
-
 			local on_init_no_format = function(client)
 				client.server_capabilities.documentFormattingProvider = false
 				client.server_capabilities.documentFormattingRangeProvider = false
