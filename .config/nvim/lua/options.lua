@@ -32,3 +32,5 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 
 vim.o.inccommand = "split"
+
+vim.o.spell = true
