@@ -66,4 +66,30 @@ return {
 			})
 		end,
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup()
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local cmp = require("cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		end,
+	},
+	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {},
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		opts = function(_, opts)
+			opts.sources = opts.sources or {}
+			table.insert(opts.sources, {
+				name = "lazydev",
+				group_index = 0,
+			})
+		end,
+	},
 }

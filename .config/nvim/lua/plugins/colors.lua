@@ -30,4 +30,14 @@ return {
         "HiPhish/rainbow-delimiters.nvim",
         event = "BufReadPre",
     },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    },
+    {
+        "Fildo7525/pretty_hover",
+        event = "LspAttach",
+        opts = {},
+    },
 }

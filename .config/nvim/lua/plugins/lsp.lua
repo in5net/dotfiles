@@ -22,7 +22,6 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"williamboman/mason-lspconfig.nvim",
 			"nvim-telescope/telescope.nvim",
-			{ "folke/neodev.nvim", opts = {} },
 			{
 				"j-hui/fidget.nvim",
 				opts = {
