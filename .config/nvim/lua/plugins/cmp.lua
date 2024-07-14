@@ -1,8 +1,8 @@
 ---@diagnostic disable: missing-fields
 return {
 	{
-		"github/copilot.vim",
-		build = ":Copilot setup",
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
 	},
 	{
 		"hrsh7th/nvim-cmp",
