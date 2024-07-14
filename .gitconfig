@@ -28,8 +28,9 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	undo = reset --soft HEAD^
 [credential]
-	helper = 
+	helper =
 	helper = /usr/local/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
