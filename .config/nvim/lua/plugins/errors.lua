@@ -1,5 +1,12 @@
 return {
 	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+		end,
+	},
+	{
 		"folke/trouble.nvim",
 		event = "BufRead",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
