@@ -23,10 +23,9 @@ return {
 		"windwp/nvim-ts-autotag",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup({
-				autotag = {
-					enable = true,
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close_on_slash = true,
 				},
 			})
 		end,
