@@ -14,6 +14,10 @@ set fish_cursor_external line
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual block
 
+zoxide init fish | source
+starship init fish | source
+fzf --fish | source
+
 abbr --add ta tmux a
 abbr --add cls clear
 abbr --add gs git status
@@ -31,6 +35,6 @@ abbr --add gps git push
 abbr --add gpl git pull --rebase
 abbr --add gap git add -p
 
-zoxide init fish | source
-starship init fish | source
-fzf --fish | source
+alias so "source ~/.config/fish/config.fish"
+alias ls "eza --icons"
+alias ll "eza --long --icons --group-directories-first --header --no-user"
