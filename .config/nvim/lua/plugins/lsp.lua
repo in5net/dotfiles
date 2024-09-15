@@ -77,7 +77,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"tsserver",
+					"ts_ls",
 					"jsonls",
 					"denols",
 					"eslint",
@@ -89,8 +89,8 @@ return {
 						local lua_opts = lsp_zero.nvim_lua_ls()
 						lspconfig.lua_ls.setup(lua_opts)
 					end,
-					tsserver = function()
-						lspconfig.tsserver.setup({
+					ts_ls = function()
+						lspconfig.ts_ls.setup({
 							root_dir = lspconfig.util.root_pattern("tsconfig.json"),
 							single_file_support = false,
 							on_init = on_init_no_format,
