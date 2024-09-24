@@ -1,13 +1,9 @@
 return {
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
+		branch = "v4.x",
 		lazy = true,
 		config = false,
-		init = function()
-			vim.g.lsp_zero_extend_cmp = 0
-			vim.g.lsp_zero_extend_lspconfig = 0
-		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -36,18 +32,10 @@ return {
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
-			lsp_zero.extend_lspconfig()
-
-			lsp_zero.set_sign_icons({
-				error = "✘",
-				warn = "▲",
-				hint = "⚑",
-				info = "»",
-			})
 
 			local builtin = require("telescope.builtin")
 			---@diagnostic disable-next-line: unused-local
-			lsp_zero.on_attach(function(client, bufnr)
+			local lsp_attach = function(client, bufnr)
 				lsp_zero.buffer_autoformat()
 
 				local nmap = function(keys, func, desc)
@@ -65,7 +53,18 @@ return {
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
 				nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 				nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-			end)
+			end
+
+			lsp_zero.extend_lspconfig({
+				sign_text = {
+					error = "✘",
+					warn = "▲",
+					hint = "⚑",
+					info = "»",
+				},
+				lsp_attach = lsp_attach,
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			})
 
 			local lspconfig = require("lspconfig")
 
