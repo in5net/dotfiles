@@ -20,7 +20,6 @@ return {
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-buffer",
-			"kristijanhusak/vim-dadbod-ui",
 			"onsails/lspkind.nvim",
 		},
 		config = function()
@@ -55,13 +54,6 @@ return {
 					format = require("lspkind").cmp_format({
 						maxwidth = 50,
 					}),
-				},
-			})
-
-			cmp.setup.filetype({ "sql", "mysql" }, {
-				sources = {
-					{ name = "vim-dadbod-completion" },
-					{ name = "buffer" },
 				},
 			})
 		end,
