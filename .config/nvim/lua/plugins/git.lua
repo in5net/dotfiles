@@ -1,11 +1,5 @@
 return {
     {
-        "tpope/vim-fugitive",
-        keys = {
-            { "<leader>gs", "<cmd>Git<cr>" },
-        },
-    },
-    {
         "lewis6991/gitsigns.nvim",
         event = "BufReadPre",
         opts = {
@@ -16,6 +10,12 @@ return {
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
             },
+        },
+    },
+    {
+        "sindrets/diffview.nvim",
+        keys = {
+            { "<leader>gd", "<cmd>DiffviewOpen<cr>" },
         },
     },
     {
