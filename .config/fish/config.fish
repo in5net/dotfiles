@@ -30,10 +30,11 @@ abbr --add gcb git checkout -b
 abbr --add gbd git branch -d
 abbr --add gd git diff
 abbr --add gb git branch
-abbr --add gaa git add -A
+abbr --add gaa git add .
 abbr --add gps git push
 abbr --add gpl git pull --rebase
 abbr --add gap git add -p
+abbr --add gra git restore .
 
 alias so "source ~/.config/fish/config.fish"
 alias ls "eza --icons"

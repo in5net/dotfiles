@@ -1,11 +1,6 @@
 ---@diagnostic disable: missing-fields
 return {
 	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
-		enabled = false,
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
