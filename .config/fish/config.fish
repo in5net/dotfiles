@@ -18,13 +18,31 @@ zoxide init fish | source
 starship init fish | source
 fzf --fish | source
 
-abbr --add ta tmux a
+set -gx EDITOR nvim
+set -gx NPM_CHECK_INSTALLER ni
+
+set -gx FZF_DEFAULT_OPTS "--layout=reverse --cycle --ansi"
+set -gx FZF_DEFAULT_COMMAND "fd -tf --color=always"
+set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+
 abbr --add cls clear
+
+# Tmux
+abbr --add ta tmux a
+abbr --add tns tmux new-session -s
+abbr --add tls tmux ls
+abbr --add tks tmux kill-server
+
+alias so "source ~/.config/fish/config.fish"
+alias ls "eza --icons"
+alias ll "eza --long --icons --group-directories-first --header --no-user"
+alias lt "eza --tree --icons --group-directories-first --header --no-user"
+
+# Git
 abbr --add gs git status
 abbr --add ga git add
 abbr --add gc git commit
 abbr --add gca git commit -a
-abbr --add gco git checkout
 abbr --add gcm git commit -m
 abbr --add gcb git checkout -b
 abbr --add gbd git branch -d
@@ -36,6 +54,14 @@ abbr --add gpl git pull --rebase
 abbr --add gap git add -p
 abbr --add gra git restore .
 
-alias so "source ~/.config/fish/config.fish"
-alias ls "eza --icons"
-alias ll "eza --long --icons --group-directories-first --header --no-user"
+function gco
+    git branch | fzf --preview 'git show --color=always {-1}' \
+        --bind 'enter:become(git checkout {-1})' \
+        --height 40%
+end
+
+function gm
+    git branch | fzf --preview 'git show --color=always {-1}' \
+        --bind 'enter:become(git merge {-1})' \
+        --height 40%
+end
