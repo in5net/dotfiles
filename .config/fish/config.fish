@@ -14,9 +14,19 @@ set fish_cursor_external line
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual block
 
-zoxide init fish | source
-starship init fish | source
-fzf --fish | source
+if command -q zoxide
+    zoxide init fish | source
+end
+if command -q starship
+    starship init fish | source
+end
+if command -q fzf
+    fzf --fish | source
+end
+if command -q uv
+    uv generate-shell-completion fish | source
+    uvx --generate-shell-completion fish | source
+end
 
 set -gx EDITOR nvim
 set -gx NPM_CHECK_INSTALLER ni
@@ -34,6 +44,7 @@ abbr --add tls tmux ls
 abbr --add tks tmux kill-server
 
 alias so "source ~/.config/fish/config.fish"
+alias refenv "source ~/.local/bin/env.fish"
 alias ls "eza --icons"
 alias ll "eza --long --icons --group-directories-first --header --no-user"
 alias lt "eza --tree --icons --group-directories-first --header --no-user"
@@ -52,7 +63,6 @@ abbr --add gaa git add .
 abbr --add gps git push
 abbr --add gpl git pull --rebase
 abbr --add gap git add -p
-abbr --add gra git restore .
 
 function gco
     git branch | fzf --preview 'git show --color=always {-1}' \
