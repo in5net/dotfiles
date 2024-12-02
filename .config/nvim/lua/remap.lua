@@ -22,5 +22,3 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("n", "x", [["_x]])
 
 vim.keymap.set("n", "Q", "<Nop>")
-
-vim.keymap.set("n", "<leader>bd", ":bd<CR>")
