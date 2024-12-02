@@ -1,14 +1,8 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v4.x",
-		lazy = true,
-		config = false,
-	},
-	{
 		"williamboman/mason.nvim",
 		lazy = false,
-		config = true,
+		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -31,47 +25,46 @@ return {
 			"b0o/SchemaStore.nvim",
 		},
 		config = function()
-			local lsp_zero = require("lsp-zero")
+			local lspconfig = require("lspconfig")
+			local lsp_defaults = lspconfig.util.default_config
 
-			local builtin = require("telescope.builtin")
-			---@diagnostic disable-next-line: unused-local
-			local lsp_attach = function(client, bufnr)
-				lsp_zero.buffer_autoformat()
+			lsp_defaults.capabilities =
+				vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-				local nmap = function(keys, func, desc)
-					vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
-				end
-
-				nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
-				nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
-				nmap("gi", builtin.lsp_implementations, "[G]oto [I]mplementation")
-				nmap("<leader>D", builtin.lsp_type_definitions, "Type [D]efinition")
-
-				nmap("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
-				nmap("<leader>ws", builtin.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
-
-				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
-				nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-			end
-
-			lsp_zero.extend_lspconfig({
-				sign_text = {
-					error = "✘",
-					warn = "▲",
-					hint = "⚑",
-					info = "»",
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = "✘",
+						[vim.diagnostic.severity.WARN] = "▲",
+						[vim.diagnostic.severity.HINT] = "⚑",
+						[vim.diagnostic.severity.INFO] = "»",
+					},
 				},
-				lsp_attach = lsp_attach,
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			})
 
-			local lspconfig = require("lspconfig")
+			local builtin = require("telescope.builtin")
+			vim.api.nvim_create_autocmd("LspAttach", {
+				desc = "LSP actions",
+				callback = function(event)
+					local nmap = function(keys, func, desc)
+						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					end
 
-			local on_init_no_format = function(client)
-				client.server_capabilities.documentFormattingProvider = false
-				client.server_capabilities.documentFormattingRangeProvider = false
-			end
+					nmap("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
+					nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
+					nmap("gi", builtin.lsp_implementations, "[G]oto [I]mplementation")
+					nmap("<leader>D", builtin.lsp_type_definitions, "Type [D]efinition")
+
+					nmap("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
+					nmap("<leader>ws", builtin.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+
+					nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+					nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+					nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+				end,
+			})
+
+			vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "LSP: Restart" })
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -83,16 +76,13 @@ return {
 					"svelte",
 				},
 				handlers = {
-					lsp_zero.default_setup,
-					lua_ls = function()
-						local lua_opts = lsp_zero.nvim_lua_ls()
-						lspconfig.lua_ls.setup(lua_opts)
+					function(server_name)
+						require("lspconfig")[server_name].setup({})
 					end,
 					ts_ls = function()
 						lspconfig.ts_ls.setup({
 							root_dir = lspconfig.util.root_pattern("tsconfig.json"),
 							single_file_support = false,
-							on_init = on_init_no_format,
 						})
 					end,
 					jsonls = function()
@@ -108,7 +98,6 @@ return {
 					denols = function()
 						lspconfig.denols.setup({
 							root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-							on_init = on_init_no_format,
 						})
 					end,
 					eslint = function()
@@ -122,15 +111,8 @@ return {
 							end,
 						})
 					end,
-					svelte = function()
-						lspconfig.svelte.setup({
-							on_init = on_init_no_format,
-						})
-					end,
 				},
 			})
-
-			vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { desc = "LSP: Restart" })
 		end,
 	},
 }
