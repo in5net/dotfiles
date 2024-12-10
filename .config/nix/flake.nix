@@ -53,6 +53,7 @@
         google-cloud-sql-proxy
         appcleaner
         iterm2
+        iina
       ];
 
       fonts.packages = with pkgs; [
