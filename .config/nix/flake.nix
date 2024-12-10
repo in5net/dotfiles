@@ -45,6 +45,7 @@
         jdk
         sqlite
         bun
+        pnpm
       ];
 
       fonts.packages = with pkgs; [
