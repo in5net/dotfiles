@@ -50,6 +50,7 @@
         pnpm
         fnm
         google-cloud-sdk
+        google-cloud-sql-proxy
         appcleaner
       ];
 
