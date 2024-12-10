@@ -47,6 +47,7 @@
         bun
         pnpm
         fnm
+        google-cloud-sdk
       ];
 
       fonts.packages = with pkgs; [
