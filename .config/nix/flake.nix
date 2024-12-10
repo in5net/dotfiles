@@ -44,6 +44,7 @@
         stripe-cli
         jdk
         sqlite
+        bun
       ];
 
       fonts.packages = with pkgs; [
