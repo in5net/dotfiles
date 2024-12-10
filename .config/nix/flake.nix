@@ -52,6 +52,7 @@
         google-cloud-sdk
         google-cloud-sql-proxy
         appcleaner
+        iterm2
       ];
 
       fonts.packages = with pkgs; [
