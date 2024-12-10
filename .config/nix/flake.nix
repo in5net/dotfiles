@@ -46,6 +46,7 @@
         sqlite
         bun
         pnpm
+        fnm
       ];
 
       fonts.packages = with pkgs; [
