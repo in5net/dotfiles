@@ -49,6 +49,7 @@
         bun
         pnpm
         fnm
+        deno
         google-cloud-sdk
         google-cloud-sql-proxy
         appcleaner
