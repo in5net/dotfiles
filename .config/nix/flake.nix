@@ -74,6 +74,7 @@
           "git-credential-manager"
           "google-chrome"
           "jordanbaird-ice"
+          "tableplus"
         ];
         masApps = {
           "QuickShade" = 931571202;
