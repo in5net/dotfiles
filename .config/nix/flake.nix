@@ -75,6 +75,7 @@
           "google-chrome"
           "jordanbaird-ice"
           "tableplus"
+          "hakuneko"
         ];
         masApps = {
           "QuickShade" = 931571202;
