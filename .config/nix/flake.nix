@@ -57,7 +57,26 @@
         iterm2
         iina
         mokuro
+        stats
+        raycast
+        unar
+        discord
       ];
+
+      homebrew = {
+        enable = true;
+        casks = [
+          "amethyst"
+          "anki"
+          "calibre"
+          "docker"
+          "firefox"
+          "git-credential-manager"
+          "google-chrome"
+          "jordanbaird-ice"
+        ];
+        onActivation.cleanup = "zap";
+      };
 
       fonts.packages = with pkgs; [
         nerd-fonts.fira-code
