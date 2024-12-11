@@ -75,6 +75,9 @@
           "google-chrome"
           "jordanbaird-ice"
         ];
+        masApps = {
+          "QuickShade" = 931571202;
+        };
         onActivation.cleanup = "zap";
       };
 
