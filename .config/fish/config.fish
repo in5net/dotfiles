@@ -23,10 +23,6 @@ end
 if command -q fzf
     fzf --fish | source
 end
-if command -q uv
-    uv generate-shell-completion fish | source
-    uvx --generate-shell-completion fish | source
-end
 
 set -gx EDITOR nvim
 set -gx NPM_CHECK_INSTALLER ni

@@ -54,6 +54,7 @@
         appcleaner
         iterm2
         iina
+        mokuro
       ];
 
       fonts.packages = with pkgs; [
