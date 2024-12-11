@@ -76,6 +76,7 @@
           "jordanbaird-ice"
           "tableplus"
           "hakuneko"
+          "onedrive"
         ];
         masApps = {
           "QuickShade" = 931571202;
