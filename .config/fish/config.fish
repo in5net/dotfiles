@@ -17,9 +17,6 @@ set fish_cursor_visual block
 if command -q zoxide
     zoxide init fish | source
 end
-if command -q starship
-    starship init fish | source
-end
 if command -q fzf
     fzf --fish | source
 end

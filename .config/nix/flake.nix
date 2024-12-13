@@ -20,7 +20,6 @@
         wget
         cmake
         fish
-        starship
         git
         delta
         fzf
