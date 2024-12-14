@@ -26,7 +26,6 @@
         fd
         ripgrep
         tmux
-        gitmux
         sesh
         neovim
         ansible
