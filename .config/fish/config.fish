@@ -75,4 +75,4 @@ abbr --add ya yadm add
 abbr --add yap yadm add -p
 abbr --add yc yadm commit
 abbr --add yps yadm push
-abbr --add yps yadm pull
+abbr --add ypl yadm pull
