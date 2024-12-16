@@ -68,3 +68,11 @@ function gm
         --bind 'enter:become(git merge {-1})' \
         --height 40%
 end
+
+# Yadm
+abbr --add ys yadm status
+abbr --add ya yadm add
+abbr --add yap yadm add -p
+abbr --add yc yadm commit
+abbr --add yps yadm push
+abbr --add yps yadm pull
