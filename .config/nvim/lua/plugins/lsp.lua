@@ -102,6 +102,9 @@ return {
 					end,
 					eslint = function()
 						lspconfig.eslint.setup({
+							settings = {
+								run = "onSave",
+							},
 							---@diagnostic disable-next-line: unused-local
 							on_attach = function(client, bufnr)
 								vim.api.nvim_create_autocmd("BufWritePre", {
