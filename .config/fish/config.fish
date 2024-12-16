@@ -71,6 +71,7 @@ end
 
 # Yadm
 abbr --add ys yadm status
+abbr --add yd yadm diff
 abbr --add ya yadm add
 abbr --add yap yadm add -p
 abbr --add yc yadm commit
