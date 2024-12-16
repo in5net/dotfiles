@@ -54,7 +54,7 @@
         appcleaner
         iterm2
         iina
-        mokuro
+        uv
         stats
         raycast
         unar
