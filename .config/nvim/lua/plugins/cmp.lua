@@ -31,6 +31,11 @@ return {
 				lsp = { fallback_for = { "lazydev" } },
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 			},
+			completion = {
+				documentation = {
+					auto_show = true,
+				},
+			},
 			signature = { enabled = true },
 		},
 	},
