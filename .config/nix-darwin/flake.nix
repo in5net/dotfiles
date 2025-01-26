@@ -59,15 +59,10 @@
             deno
             google-cloud-sdk
             google-cloud-sql-proxy
-            appcleaner
-            iterm2
-            iina
             uv
-            stats
-            raycast
-            unar
-            discord
             nixfmt-rfc-style
+            yazi
+            kakoune
           ];
 
           homebrew = {
@@ -80,10 +75,18 @@
               "firefox"
               "git-credential-manager"
               "google-chrome"
+              "iterm2"
               "jordanbaird-ice"
               "tableplus"
               "hakuneko"
               "onedrive"
+              "google-japanese-ime"
+              "spotify"
+              "raycast"
+              "discord"
+              "iina"
+              "stats"
+              "appcleaner"
             ];
             masApps = {
               "QuickShade" = 931571202;
