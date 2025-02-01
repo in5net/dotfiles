@@ -15,7 +15,7 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
-		version = "v0.*",
+		version = "*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
@@ -25,11 +25,14 @@ return {
 				nerd_font_variant = "mono",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "lazydev" },
-			},
-			providers = {
-				lsp = { fallback_for = { "lazydev" } },
-				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
+					},
+				},
 			},
 			completion = {
 				documentation = {
