@@ -41,6 +41,7 @@
             ffmpeg
             jq
             lazygit
+            lazydocker
             eza
             bat
             zoxide
