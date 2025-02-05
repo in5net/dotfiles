@@ -108,6 +108,13 @@ return {
 							},
 							---@diagnostic disable-next-line: unused-local
 							on_attach = function(client, bufnr)
+								vim.keymap.set(
+									"n",
+									"<leader>ef",
+									":EslintFixAll<CR>",
+									{ buffer = bufnr, desc = "LSP: Restart" }
+								)
+
 								vim.api.nvim_create_autocmd("BufWritePre", {
 									buffer = bufnr,
 									command = "EslintFixAll",
