@@ -61,6 +61,7 @@
             google-cloud-sdk
             google-cloud-sql-proxy
             uv
+            unar
             nixfmt-rfc-style
             yazi
             kakoune
