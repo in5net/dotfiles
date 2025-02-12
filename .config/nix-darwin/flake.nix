@@ -33,6 +33,7 @@
             fzf
             fd
             ripgrep
+            sd
             tmux
             sesh
             neovim
