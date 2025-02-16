@@ -71,11 +71,15 @@
 
           homebrew = {
             enable = true;
+            brews = [
+              "colima"
+              "docker"
+              "docker-credential-helper"
+            ];
             casks = [
               "amethyst"
               "anki"
               "calibre"
-              "docker"
               "firefox"
               "git-credential-manager"
               "google-chrome"
