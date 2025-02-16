@@ -33,6 +33,7 @@
             fzf
             fd
             ripgrep
+            gnused
             sd
             tmux
             sesh
