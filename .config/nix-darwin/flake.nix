@@ -67,6 +67,7 @@
             nixfmt-rfc-style
             yazi
             kakoune
+            rustup
           ];
 
           homebrew = {
