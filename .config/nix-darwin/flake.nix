@@ -96,6 +96,7 @@
               "iina"
               "stats"
               "appcleaner"
+              "protonvpn"
             ];
             masApps = {
               "QuickShade" = 931571202;
