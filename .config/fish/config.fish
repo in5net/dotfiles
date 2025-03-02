@@ -28,6 +28,8 @@ set -gx FZF_DEFAULT_OPTS "--layout=reverse --cycle --ansi"
 set -gx FZF_DEFAULT_COMMAND "fd -tf --color=always"
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
+set -gx DENO_NO_UPDATE_CHECK 1
+
 abbr --add cls clear
 
 # Tmux
