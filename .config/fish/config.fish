@@ -58,6 +58,7 @@ abbr --add gaa git add .
 abbr --add gps git push
 abbr --add gpl git pull --rebase
 abbr --add gap git add -p
+abbr --add gl git log
 
 function gco
     git branch | fzf --preview 'git show --color=always {-1}' \
