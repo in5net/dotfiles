@@ -68,6 +68,7 @@
             yazi
             kakoune
             rustup
+            thefuck
           ];
 
           homebrew = {
