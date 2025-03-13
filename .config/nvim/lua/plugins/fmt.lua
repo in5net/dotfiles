@@ -30,7 +30,7 @@ return {
 			svg = { "prettier" },
 			fish = { "fish_indent" },
 			sh = { "shfmt" },
-			sql = { "sqlfmt" },
+			sql = { "sleek" },
 			nix = { "nixfmt" },
 			_ = { "trim_whitespace" },
 		},
