@@ -1,5 +1,5 @@
-<h1 align="center">prismancy's .dotfiles</h1>
+<h1 align="center">in5net's .dotfiles</h1>
 
 Install using [yadm](https://yadm.io)
 
-`yadm clone https://github.com/prismancy/dotfiles.git`
+`yadm clone https://github.com/in5net/dotfiles.git`
