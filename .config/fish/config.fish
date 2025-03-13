@@ -20,9 +20,6 @@ end
 if command -q fzf
     fzf --fish | source
 end
-if command -q thefuck
-    thefuck --alias | source
-end
 
 set -gx EDITOR nvim
 set -gx NPM_CHECK_INSTALLER ni
