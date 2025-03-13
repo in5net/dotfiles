@@ -12,19 +12,4 @@ return {
 			},
 		},
 	},
-	{
-		"sindrets/diffview.nvim",
-		keys = {
-			{ "<leader>gd", "<cmd>DiffviewOpen<cr>" },
-		},
-	},
-	{
-		"kdheepak/lazygit.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>" },
-		},
-	},
 }
