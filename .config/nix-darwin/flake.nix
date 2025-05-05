@@ -99,6 +99,7 @@
               "stats"
               "appcleaner"
               "protonvpn"
+              "musescore"
             ];
             masApps = {
               "QuickShade" = 931571202;
