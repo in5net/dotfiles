@@ -77,6 +77,7 @@
               "colima"
               "docker"
               "docker-credential-helper"
+              "mecab-ipadic"
             ];
             casks = [
               "amethyst"
