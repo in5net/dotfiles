@@ -49,7 +49,7 @@
             zoxide
             yadm
             yt-dlp
-            tldr
+            tlrc
             hexyl
             darwin.trash
             gum
