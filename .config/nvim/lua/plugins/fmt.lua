@@ -32,6 +32,7 @@ return {
 			sh = { "shfmt" },
 			sql = { "sleek" },
 			nix = { "nixfmt" },
+			prisma = { lsp_format = "fallback" },
 			_ = { "trim_whitespace" },
 		},
 		format_on_save = { timeout_ms = 3000, lsp_format = "fallback", stop_after_first = true },
