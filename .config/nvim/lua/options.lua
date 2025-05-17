@@ -8,6 +8,7 @@ vim.o.relativenumber = true
 vim.o.cursorline = true
 
 vim.o.wrap = true
+vim.o.linebreak = true
 
 vim.o.expandtab = true
 vim.o.tabstop = 4
