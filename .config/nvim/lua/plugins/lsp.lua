@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 return {
 	{
 		"williamboman/mason.nvim",
@@ -71,8 +72,8 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"ts_ls",
-					"jsonls",
 					"denols",
+					"jsonls",
 					"eslint",
 					"svelte",
 				},
@@ -86,6 +87,12 @@ return {
 							single_file_support = false,
 						})
 					end,
+
+					denols = function()
+						lspconfig.denols.setup({
+							root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+						})
+					end,
 					jsonls = function()
 						lspconfig.jsonls.setup({
 							settings = {
@@ -96,17 +103,11 @@ return {
 							},
 						})
 					end,
-					denols = function()
-						lspconfig.denols.setup({
-							root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-						})
-					end,
 					eslint = function()
 						lspconfig.eslint.setup({
 							settings = {
 								run = "onSave",
 							},
-							---@diagnostic disable-next-line: unused-local
 							on_attach = function(client, bufnr)
 								vim.keymap.set(
 									"n",
@@ -122,6 +123,17 @@ return {
 							end,
 						})
 					end,
+					vim.lsp.config("svelte", {
+						on_attach = function(client, bufnr)
+							vim.api.nvim_create_autocmd("BufWritePost", {
+								pattern = { "*.js", "*.ts" },
+								callback = function(ctx)
+									-- Update imported things from js or ts files inside of svelte files
+									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+								end,
+							})
+						end,
+					}),
 				},
 			})
 		end,
