@@ -69,6 +69,7 @@
             kakoune
             rustup
             go
+            miniserve
           ];
 
           homebrew = {
