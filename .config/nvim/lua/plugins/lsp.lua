@@ -114,11 +114,6 @@ return {
 									":EslintFixAll<CR>",
 									{ buffer = bufnr, desc = "LSP: Restart" }
 								)
-
-								vim.api.nvim_create_autocmd("BufWritePre", {
-									buffer = bufnr,
-									command = "EslintFixAll",
-								})
 							end,
 						})
 					end,
