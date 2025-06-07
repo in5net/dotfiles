@@ -21,6 +21,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- delete character to black hole register
 vim.keymap.set("n", "x", [["_x]])
 
-vim.keymap.set("n", "Q", "<Nop>")
-
 vim.keymap.set("n", "<leader>nh", ":nohlsearch<CR>")
+
+vim.keymap.set("n", "]q", ":cnext<CR>")
+vim.keymap.set("n", "[q", ":cprevious<CR>")

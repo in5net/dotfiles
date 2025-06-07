@@ -87,7 +87,6 @@ return {
 							single_file_support = false,
 						})
 					end,
-
 					denols = function()
 						lspconfig.denols.setup({
 							root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
